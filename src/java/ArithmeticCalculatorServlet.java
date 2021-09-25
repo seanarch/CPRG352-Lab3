@@ -28,25 +28,24 @@ public class ArithmeticCalculatorServlet extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          // capture the parameters coming in from the POST request
-        String yourage =  request.getParameter("your_age");
-         
-        
-        
+        String firstnumber =  request.getParameter("first_number");
+        String secondnumber = request.getParameter("second_number");
+          
         // Set some attributes in the request object.
         // The request object will be passed through to the JSP by the forward() method.
-        request.setAttribute("yourAge", yourage);
-       
+        request.setAttribute("firstNumber", firstnumber);
+        request.setAttribute("secondNumber", secondnumber);
         
-        if (yourage == null || yourage.equals("")) {
+        if (firstnumber == null || firstnumber.equals("") || secondnumber == null || secondnumber.equals("")) {
             // set up a helpful error message for user
-            request.setAttribute("message", "You must give your current age.");
+            request.setAttribute("message", "invalid");
             // display the form again
             getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
             return;
         }
         
-        int nextage = parseInt(yourage) + 1;
-        request.setAttribute("message", "Your age next birthday will be " + nextage);
+        
+        request.setAttribute("message", "Your age next birthday will be ");
         getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
     }
 

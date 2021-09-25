@@ -37,7 +37,7 @@ public class AgeCalculatorServlet extends HttpServlet {
         request.setAttribute("yourAge", yourage);
        
         
-        if (yourage == null || yourage.equals("")) {
+        if (yourage == null || yourage.equals("") || !yourage.matches("[0-9]+")) {
             // set up a helpful error message for user
             request.setAttribute("message", "You must give your current age.");
             // display the form again
