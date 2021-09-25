@@ -37,10 +37,16 @@ public class AgeCalculatorServlet extends HttpServlet {
         request.setAttribute("yourAge", yourage);
        
         
-        if (yourage == null || yourage.equals("") || !yourage.matches("[0-9]+")) {
+        if (yourage == null || yourage.equals("")) {
             // set up a helpful error message for user
             request.setAttribute("message", "You must give your current age.");
             // display the form again
+            getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
+            return;
+        }
+        
+        if (!yourage.matches("[0-9]+")) {
+            request.setAttribute("message", "You must enter a number.");
             getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
             return;
         }
