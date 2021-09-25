@@ -17,12 +17,10 @@
             <label>First Name:</label>
             <input type="text" name ="your_age" value="${yourAge}" >
             <br> 
-            <input type="submit" value="Age next birthday">
-            <br>
-                
+            <input type="submit" value="Age next birthday">    
         </form>
         <p>${message}</p>
-        <p><a ref></a></p>
+        <p><a href="arithmetic">Arithmetic Calculator</a></p>
     </body>
 </html>
 
